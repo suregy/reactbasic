@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { render } from '@testing-library/react';
+import FunctionComponet from './functioncomponent/HelloComponent';
+import ClassComponent from './classcomponent/StatefullComponent';
+import YoutubeComp from './functioncomponent/YoutubeComp/YoutubeComp';
+import YoutubeHome from './classcomponent/YoutubeHome/YoutubeHome';
+
+const HelloWorld = () => {
+  return <p>Hello World</p>;
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <YoutubeHome />
   </React.StrictMode>,
   document.getElementById('root')
 );
