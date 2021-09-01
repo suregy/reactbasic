@@ -1,0 +1,13 @@
+.nav {
+	background: #444345;
+	padding: 30px;
+}
+
+.nav a {
+	padding:  10px 40px;
+	margin: 10px;
+	text-emphasis: none;
+	border-radius: 4px;
+	color: white;
+	background: aquamarine;
+}

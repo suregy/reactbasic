@@ -1,0 +1,84 @@
+.header {
+  background: #1fc409;
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+.trolley {
+  position: relative;
+}
+
+.trolley img {
+  width: 30px;
+}
+
+.count {
+  background: #070aad;
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  min-width: 10px;
+  height: 10px;
+  text-align: center;
+  font-size: 11px;
+  position: absolute;
+  bottom: -8px;
+  left: -11px;
+}
+
+.card {
+  border: 1px solid gray;
+  padding: 10px;
+  width: 320px;
+  border-radius: 4px;
+  margin-left: 40px;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 2px 2px rgba(138, 138, 138, 0.705);
+}
+
+.img-thumb-prod {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.img-thumb-prod img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter .minus,
+.counter .plus {
+  background-color: #070aad;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 14px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.counter input[type='text'] {
+  text-align: center;
+  font-size: 14px;
+  color: #5e5e5e;
+  border-radius: 5px;
+  font-weight: 600;
+  border: 0.8px solid aquamarine;
+  box-sizing: border-box;
+  width: 150px;
+}
