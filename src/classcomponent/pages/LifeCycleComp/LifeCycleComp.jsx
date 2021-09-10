@@ -1,76 +1,81 @@
-import React, { Component } from 'react'
-import './LifeCycleComp.css'
-
+import React, { Component } from 'react';
+import './LifeCycleComp.css';
+import { connect } from 'react-redux';
 
 class LifeCycleComp extends Component {
+  constructor(props) {
+    super();
 
-    constructor(props) {
+    this.state = {
+      count: 1,
+    };
+    console.log('constructor');
+  }
 
-        super();
+  static getDerivedFromProps(porps, state) {
+    console.log('getDerivedFromProps');
+    return null;
+  }
 
-        this.state = {
-            count: 1
-        }
-        console.log('constructor');
+  componentDidMount() {
+    console.log('componentDidMount');
+    // setTimeout(() => {
+    //     this.setState({
+    //         count: 2
+    //     })
+    // }, 5000)
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.group('shouldComponentUpdate');
+    console.log('nexProps', 'nextProps');
+    console.log('nextState', nextState);
+    console.log('this state', this.state);
+    console.groupEnd('');
+    //kondisi jika state ingin dibatasi agar component tidak di update
+    if (nextState.count >= 4) {
+      return false;
     }
+    return true;
+  }
 
-    static getDerivedFromProps(porps, state) {
-        console.log('getDerivedFromProps');
-        return null;
-    }
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('getSnapshotBeforeUpdate');
+    return null;
+  }
 
-    componentDidMount() {
-        console.log('componentDidMount')
-        // setTimeout(() => {
-        //     this.setState({
-        //         count: 2
-        //     })
-        // }, 5000)
-    }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('componentDidUpdate');
+  }
 
-    shouldComponentUpdate(nextProps, nextState){
-        console.group('shouldComponentUpdate');
-        console.log('nexProps', 'nextProps');
-        console.log('nextState', nextState);
-        console.log('this state', this.state);
-        console.groupEnd('');
-        //kondisi jika state ingin dibatasi agar component tidak di update
-        if(nextState.count >= 4){
-            return false;
-        }
-        return true;
-    }
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+  }
 
-    getSnapshotBeforeUpdate(prevProps, prevState){
-        console.log('getSnapshotBeforeUpdate')
-        return null;
-    }
+  onChangeCount = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
 
-    componentDidUpdate(prevProps, prevState, snapshot){
-        console.log('componentDidUpdate')
-    }
-
-    componentWillUnmount(){
-        console.log('componentWillUnmount')
-    }
-
-    onChangeCount = () => {
-        this.setState({
-            count: this.state.count + 1
-        })
-    }
-
-
-
-    render(){
-        console.log('render')
-        return (
-            <>
-            <p>Component Button</p>
-            <button className="btn" onClick ={this.onChangeCount} >Component Button {this.state.count}</button>
-            </>
-        );
-    }
+  render() {
+    console.log('render');
+    return (
+      <>
+        <p>Component Button</p>
+        <button className="btn" onClick={this.onChangeCount}>
+          Component Button {this.state.count}
+        </button>
+        <p>totalOder: {this.props.order}</p>
+      </>
+    );
+  }
 }
 
-export default LifeCycleComp;
+const mapsStateToProps = state => {
+  return {
+    order: state.totalOrder,
+  };
+};
+
+export default connect(mapsStateToProps)(LifeCycleComp);

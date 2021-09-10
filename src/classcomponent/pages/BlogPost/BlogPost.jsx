@@ -15,6 +15,9 @@ class BlogPost extends Component {
     isUpdate: false,
   };
 
+  //cara run db json
+  //json-server --watch db.json --port 3004
+
   //refresh post
   getAPI = () => {
     axios.get('http://localhost:3004/posts?_sort=id&_order=desc').then(res => {
@@ -135,7 +138,7 @@ class BlogPost extends Component {
 
   //handle detail post
   handleDetail = id => {
-    this.props.history.push(`detail-post/${id}`)
+    this.props.history.push(`detail-post/${id}`);
   };
 
   render() {

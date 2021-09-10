@@ -8,15 +8,23 @@ import FunctionComponet from './functioncomponent/HelloComponent';
 import ClassComponent from './classcomponent/StatefullComponent';
 import YoutubeComp from './functioncomponent/YoutubeComp/YoutubeComp';
 import YoutubeHome from './classcomponent/YoutubeHome/YoutubeHome';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './redux/reducer/globalReducer';
+
+//store
+const storeRedux = createStore(rootReducer);
 
 const HelloWorld = () => {
   return <p>Hello World</p>;
 };
 
 ReactDOM.render(
-  <React.StrictMode>
-    <YoutubeHome />
-  </React.StrictMode>,
+  <Provider store={storeRedux}>
+    <React.StrictMode>
+      <YoutubeHome />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
